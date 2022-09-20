@@ -27,6 +27,15 @@ class CategroyFixtures extends Fixture
 
         $manager->persist($maison);
 
+
+        // $plateforme = new Category();
+        // $plateforme->setName('LaPlateforme');
+
+       
+
+
+        // $manager->persist($plateforme);
+
         $manager->flush();
     }
     // il va falloir qu'on rattache ces catégories a nos articles
