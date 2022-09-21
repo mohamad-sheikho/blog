@@ -131,13 +131,16 @@ class DefaultController extends AbstractController
 
     // on verifie si la champ a  bien été valide
     if ($form->isSubmitted() && $form->isValid()) {
+      
+
+
 
       if($form->get('brouillon')->isClicked()){
         $article->setState('brouillon');
 
       }
       else{
-        $article->setState('publier');
+        $article->setState('a publier');
       }
 // la on va verifier que le getid soit null
       if($article->getId() ===null){

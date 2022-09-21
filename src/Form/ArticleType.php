@@ -38,7 +38,7 @@ class ArticleType extends AbstractType
             ])
 
             ->add('publier', SubmitType::class,[
-                'label' => 'Publier'
+                'label' => 'A publier'
             ])
         ;
     }
