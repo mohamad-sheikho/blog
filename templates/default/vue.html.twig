@@ -10,7 +10,11 @@
 
 	{# {% include 'menu/_menu.html.twig '%} #}
 
-	<h1>{{article.titre }}</h1>
+	<h1> {{ article.titre }}</h1> 
+	
+	<p>
+	<a href="{{ path('edition_article',{'id':article.id})}}" class="btn btn-info">Editer</a>
+	</p>
 	<small>
 		{{ article.dateCreation|date('d/m/y')}}
 

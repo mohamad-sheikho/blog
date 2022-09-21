@@ -35,7 +35,8 @@ class DefaultController extends AbstractController
 
     return $this->render('default/index.html.twig', [
 
-      'articles' => $articles
+      'articles' => $articles,
+      'brouillon' => false
 
 
     ]);
@@ -158,5 +159,21 @@ class DefaultController extends AbstractController
     ]);
   }
 
+  /**
+   * @Route("/article/brouillon", name="brouillon_article")
+   */
+  public function brouillon(ArticleRepository $articleRepository){
+    $articles = $articleRepository->findBy([
+      'state' => 'brouillon'
+    ]);
 
+    return $this->render('default/index.html.twig', [
+
+      'articles' => $articles,
+      'brouillon' => true
+
+
+    ]);
+
+  }
 }
