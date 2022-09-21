@@ -21,9 +21,11 @@
 
   {{ form_label(form.categories, null, {'labler_attr': {'class':'form-label' }} ) }}
     {{ form_widget(form.categories, {'attr': {'class': 'form-control'}} ) }}
- 
+ {{ form_widget(form.brouillon,{'attr' : {'class': 'btn btn-default'}}) }}
+			{{ form_widget(form.publier,{'attr' : {'class': 'btn btn-success'}}) }}
+
         {{ form_rest(form) }}
-        <button type="submit" class="btn btn-success  mt-3 mb-3">Enregistrer</button>
+        {# <button type="submit" class="btn btn-success  mt-3 mb-3">Enregistrer</button> #}
 {{ form_end(form) }}
 
 {% endblock %}

@@ -29,11 +29,9 @@ class DefaultController extends AbstractController
    */
   public function listeArticles(ArticleRepository $articleRepository): Response
   {
-
-    $article = $articleRepository->findByTitre('Article N°.1');
-
-    // dump($article);die;
-    $articles = $articleRepository->findAll();
+    $articles = $articleRepository->findBy([
+      'state' => 'publier'
+    ]);
 
     return $this->render('default/index.html.twig', [
 
@@ -104,16 +102,20 @@ class DefaultController extends AbstractController
   // LA PAGE AJOUTER UN ARTICLE 
   /**
    * @Route("/article/ajouter", name="ajout_article")
+   * @Route("/article/{id}/edition", name="edition_article", requirements={"id"="\d+"}, methods={"GET", "POST"})
    */
-  public function ajouter(Request $request, EntityManagerInterface $manager)
+  public function ajouter(Article $article = null, Request $request, EntityManagerInterface $manager)
   // le service request  va me fournir des donnée sur la requete qui a été faite  par le client 
   // le service  EntityManagerInterface permet de manipuler nos données
   {
 
+    // on va checker si  notre route article est null
+    if($article === null){ // si l'article est null on  crée une nouvelle instance d'article
 
-    //  Quand on arrive sur la page ajouter un article 
+    // Quand on arrive sur la page ajouter un article 
     // on crée un nouvel article
     $article = new Article();
+    }
 
     //  cet nouvel article ^^ on l'envoi au formulaire 
 
@@ -129,7 +131,20 @@ class DefaultController extends AbstractController
     // on verifie si la champ a  bien été valide
     if ($form->isSubmitted() && $form->isValid()) {
 
-      $manager->persist($article);
+      if($form->get('brouillon')->isClicked()){
+        $article->setState('brouillon');
+
+      }
+      else{
+        $article->setState('publier');
+      }
+// la on va verifier que le getid soit null
+      if($article->getId() ===null){
+        // on sait que notre article n'existe pas en bdd et on va le mettre
+        $manager->persist($article);
+      }
+
+      
 
       $manager->flush();
 
@@ -142,71 +157,6 @@ class DefaultController extends AbstractController
       // la fonction createview peremt de créer la vue coreespondance a ce formulaire 
     ]);
   }
+
+
 }
-
-    //  (
-
-
-// ANCIENNE VERSION
-
-
-    // si on veut rajouter des champs a notre formulaire on utilise la fonction add
-    // la fonction add() se met a la suite de la fontion creatFormBuilder : $form->createFormBuilder()->add(...)
-
-    // $form = $this->createFormBuilder()
-    // ->add('titre', TextType::class, [
-    //   'label' => "Titre de l'article"
-    // ])
-    // ->add('contenu', TextareaType::class)
-    // ->add('dateCreation', DateType::class, [
-    //   'widget' => 'single_text',
-    //   // 'input' => 'datetime'
-    // ])
-    
-    // ->getForm();
-
-
-// )
-
-//cava permettre de dire au formulaire de recuperer la requete et les données qui ont été envoyé a la bdd
-    // ici on verifie sur le form a bien éte soumis 
-
-   
-//        $article = new Article();
-//        $article->setTitre($form->get('titre')->getData());
-//        $article->setContenu($form->get('contenu')->getData());
-//        $article->setDateCreation($form->get('dateCreation')->getData());
-
-//        //on appelle notre categorie
-
-//        $category = $categoryRepository->findOneBy([
-//         'name' => 'Sport'
-//        ]);
-
-//        $article->addCategory($category);
-// //on a un nouvel objet donc on va le persister
-//        $manager->persist($article);
-
-//        $manager->flush();
-
-//        return $this->redirectToRoute('liste_articles');
-
-
-
-
-
-  
-
-
-
-
-
-    // $article = new Article();
-    // $article->setTitre("Titre de l'article");
-    // $article->setContenu("Ceci est le contenu de l'article");
-    // $article->setDateCreation(new \DateTime());
-
-    // $manager->persist($article); 
-    // $manager->flush();
-    // die;
-    //  dump($article);die;
