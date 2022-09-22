@@ -24,7 +24,7 @@ class AppExtension extends AbstractExtension
 
     public function getLenth(array $tableau)
     {
-        return "le tableau contient " . count($tableau) ." articles";
+        return "Actuellement ". count($tableau). " articles";    
     }
 
     public function calculAdd(int $chiffre1, int $chiffre2){
