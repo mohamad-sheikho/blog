@@ -9,6 +9,7 @@ use App\Form\CommentType;
 use App\Form\ArticleType;
 use App\Service\VerificationComment as VerificationComment;
 use App\Repository\ArticleRepository as ArticleRepository;
+use App\Repository\CommentRepository;
 use App\Repository\CategoryRepository;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
@@ -97,6 +98,14 @@ class DefaultController extends AbstractController
       'article' => $article,
       'form' => $form->createView()
     ]);
+  }
+
+  #[Route('/delete/comment/{id}', name: 'delete_comment', methods: ['GET'])]
+  public function removeComment(Comment $comment, commentRepository $commentRepository)
+  {
+      $commentRepository->remove($comment, true);
+
+      return $this->redirectToRoute('liste_articles', []);
   }
 
 }

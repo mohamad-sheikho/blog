@@ -12,12 +12,13 @@ class UserFixtures extends Fixture
     {
         $user = new User();
         $user->setUsername('paul');
-        $user->setPassword('$2y$13$tu8QCReCZ3Nmo9k4sglHBOUmDH10GvpXb2d3cdmNKW5MbsaCINBhu');
+        $user->setPassword('$2y$13$DrLb1P.YRDgTe4SyiPoR4upYvENZclU9i4YzcyJA4DkheNfmKWPsu');
+        // $user->setRoles(['ROLE_USER']);
         $manager->persist($user);
         
         $admin = new User();
         $admin->setUsername('admin');
-        $admin->setPassword('$2y$13$DtzGqQ2M/ry4ANmFKZDiuuX93/yRKBiz2Y3n8TXJe556ozY1mu0dm');
+        $admin->setPassword('$2y$13$iaclZzFcWQeehLXphjlyoe2scDrPaBrFpfhcOWvOYZiek4XMdBeHS');
         $admin->setRoles(['ROLE_ADMIN']);
         $manager->persist($admin);
         $manager->flush();

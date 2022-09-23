@@ -30,6 +30,9 @@
                     <p class="card-text"><small class="text-muted">Le {{ comment.dateComment|date("d/m/Y") }} par {{ comment.author }}</small></p>
                     <p>{{ comment.contenu }}</p>
                 </div>
+                {% if is_granted('ROLE_ADMIN') %}
+            <a href={{ path('delete_comment', {'id': comment.id}) }} class="btn btn-primary">Delete</a>
+        {% endif %}
             </div>
         </div>
     {% endfor %}

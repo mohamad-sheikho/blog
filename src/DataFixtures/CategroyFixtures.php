@@ -19,13 +19,33 @@ class CategroyFixtures extends Fixture
 
         $manager->persist($sport);
 
-        $maison = new Category();
-        $maison->setName('Maison');
+        $tout = new Category();
+        $tout->setName('Tout');
 
-       
+        $manager->persist($tout);
 
 
-        $manager->persist($maison);
+        $dev = new Category();
+        $dev->setName('Dev');
+
+        $manager->persist($dev);
+
+        $femme = new Category();
+        $femme->setName('Femme');
+
+        $manager->persist($femme);
+
+        $gossip = new Category();
+        $gossip->setName('Gossip La Plateforme');
+
+        $manager->persist($gossip);
+
+        $bl = new Category();
+        $bl->setName('BALANCE TOUT');
+
+        $manager->persist($bl);
+
+
 
 
         // $plateforme = new Category();
