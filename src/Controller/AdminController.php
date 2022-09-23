@@ -67,7 +67,7 @@ class AdminController extends AbstractController
 
       }
       else{
-        $article->setState('a publier');
+        $article->setState('publier');
       }
 // la on va verifier que le getid soit null
       if($article->getId() === null){
