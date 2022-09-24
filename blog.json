@@ -1,0 +1,67 @@
+[
+{"type":"header","version":"5.1.1","comment":"Export to JSON plugin for PHPMyAdmin"},
+{"type":"database","name":"blog"},
+{"type":"table","name":"admin","database":"blog","data":
+[
+
+]
+}
+,{"type":"table","name":"article","database":"blog","data":
+[
+{"id":"371","titre":"LaPLateforme","contenu":"Racontez votre vie","date_creation":"2022-09-24","state":"publier"},
+{"id":"372","titre":"Khellaff","contenu":"Vous en pensez quoi de Khellaff?????","date_creation":"2022-09-24","state":"publier"},
+{"id":"373","titre":"Football","contenu":"Le ballon d'or est pour Kb9","date_creation":"2022-09-24","state":"publier"}
+]
+}
+,{"type":"table","name":"category","database":"blog","data":
+[
+{"id":"49","name":"Sport"},
+{"id":"50","name":"Tout"},
+{"id":"51","name":"Dev"},
+{"id":"52","name":"Femme"},
+{"id":"53","name":"Gossip La Plateforme"},
+{"id":"54","name":"BALANCE TOUT"}
+]
+}
+,{"type":"table","name":"category_article","database":"blog","data":
+[
+{"category_id":"49","article_id":"373"},
+{"category_id":"50","article_id":"372"},
+{"category_id":"50","article_id":"373"},
+{"category_id":"51","article_id":"371"},
+{"category_id":"51","article_id":"372"},
+{"category_id":"53","article_id":"371"},
+{"category_id":"54","article_id":"371"},
+{"category_id":"54","article_id":"372"}
+]
+}
+,{"type":"table","name":"comment","database":"blog","data":
+[
+{"id":"164","article_id":"373","contenu":"Ah si il ne l'as pas, j'arrête le foot","date_comment":"2022-09-24 09:55:21","author":"amine"},
+{"id":"165","article_id":"372","contenu":"Franchement je l'aime bien mais il ronfle trop fort, donc c'est chiant quoi","date_comment":"2022-09-24 10:52:43","author":"chaima"}
+]
+}
+,{"type":"table","name":"doctrine_migration_versions","database":"blog","data":
+[
+{"version":"DoctrineMigrations\\Version20220907012918","executed_at":"2022-09-07 03:32:27","execution_time":"298"},
+{"version":"DoctrineMigrations\\Version20220910022302","executed_at":"2022-09-10 04:27:25","execution_time":"627"},
+{"version":"DoctrineMigrations\\Version20220910044957","executed_at":"2022-09-10 06:51:27","execution_time":"261"},
+{"version":"DoctrineMigrations\\Version20220921183045","executed_at":"2022-09-21 20:31:30","execution_time":"256"},
+{"version":"DoctrineMigrations\\Version20220921224919","executed_at":"2022-09-22 00:50:15","execution_time":"258"},
+{"version":"DoctrineMigrations\\Version20220922155828","executed_at":"2022-09-22 18:00:45","execution_time":"245"}
+]
+}
+,{"type":"table","name":"messenger_messages","database":"blog","data":
+[
+
+]
+}
+,{"type":"table","name":"user","database":"blog","data":
+[
+{"id":"21","username":"paul","roles":"[\"ROLE_USER\", \"ROLE_ADMIN\"]","password":"$2y$13$DrLb1P.YRDgTe4SyiPoR4upYvENZclU9i4YzcyJA4DkheNfmKWPsu"},
+{"id":"22","username":"admin","roles":"[\"ROLE_ADMIN\"]","password":"$2y$13$iaclZzFcWQeehLXphjlyoe2scDrPaBrFpfhcOWvOYZiek4XMdBeHS"},
+{"id":"25","username":"mohamad12","roles":"[]","password":"$2y$13$Usr59oelpvhIxagxlySZA.qKxE6GU1VClgrkBfhcKaOierkGnkQ56"},
+{"id":"26","username":"test1","roles":"[]","password":"$2y$13$bg.DuYuxB5V3hfGGTrq08ukHhImMzNsoh8YHQNouYBjiRwMquwqNO"}
+]
+}
+]
