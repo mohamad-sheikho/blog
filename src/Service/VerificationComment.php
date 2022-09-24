@@ -15,11 +15,10 @@ class VerificationComment
             "Nique ta mère",
             "fdp",
             "moche",
-            "Rémy",
-            "roxan",
-            "ruben",
-            "nicolas",
-            "jasmine" 
+            "fils de pute",
+            "batard",
+            "negro"
+            
 
         ];
         // ici je vais boucler les mots qui ne sont pas autorisé
